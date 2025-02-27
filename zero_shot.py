@@ -33,8 +33,8 @@ def initialize_llm():
                               )
     return llm
 
-def create_parser_prompt():
-    """Create a specialized prompt template for generating parser functions in C."""
+def create_prompt_template():
+    """Create prompt template for generating parser functions in C."""
 
     template = """You are a specialized C programming agent that creates parser functions following strict requirements.
 Each parser you create must have all of the following characteristics:
@@ -69,7 +69,7 @@ def run_llm(input):
 
     ### initialize model and prompt
     llm = initialize_llm()
-    prompt = create_parser_prompt()
+    prompt = create_prompt_template()
 
     ### runnable sequence
     chain = prompt | llm
